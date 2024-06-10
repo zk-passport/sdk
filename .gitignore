@@ -1,0 +1,5 @@
+node_modules/
+artifacts/disclose_final.zkey
+yarn.lock
+yarn-error.log
+artifacts/disclose.wasm
