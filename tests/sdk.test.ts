@@ -7,11 +7,10 @@ import { poseidon2, poseidon6 } from "poseidon-lite";
 import { PASSPORT_ATTESTATION_ID } from "../utils/constants";
 import { formatMrz, packBytes } from '../utils/utils';
 import { getLeaf } from '../utils/pubkeyTree';
-import fs from 'fs';
+import { ProofOfPassportWeb2Verifier } from '../sdk';
+
 const path_disclose_wasm = "./artifacts/disclose.wasm";
 const path_disclose_zkey = "./artifacts/disclose_final.zkey";
-const path_disclose_vkey = "./artifacts/disclose_vkey.json";
-import { ProofOfPassportWeb2Verifier } from '../sdk';
 
 describe('Circuit Proving Tests', () => {
     it('should generate a valid proof for the disclose circuit', async () => {
@@ -22,7 +21,6 @@ describe('Circuit Proving Tests', () => {
         const majority = ["1", "8"];
         const secret = BigInt(0).toString();
         const attestation_id = PASSPORT_ATTESTATION_ID;
-        const vKey = JSON.parse(fs.readFileSync(path_disclose_vkey) as unknown as string);
 
         const mrz_bytes = packBytes(formatMrz(passportData.mrz));
         const pubkey_leaf = getLeaf({
