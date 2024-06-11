@@ -46,7 +46,7 @@ describe('Circuit Proving Tests', () => {
             majority,
             bitmap,
             scope,
-            BigInt(0).toString()
+            BigInt(5).toString()
         );
 
         const { proof, publicSignals } = await groth16.fullProve(
@@ -56,6 +56,8 @@ describe('Circuit Proving Tests', () => {
         );
 
         const proofOfPassportWeb2Verifier = new ProofOfPassportWeb2Verifier(scope, attestation_id, [["older_than", "18"], ["nationality", "France"]]);
-        await proofOfPassportWeb2Verifier.verifyInputs(publicSignals, proof);
+        const result = await proofOfPassportWeb2Verifier.verifyInputs(publicSignals, proof);
+        console.log('\x1b[34m%s\x1b[0m', "- nullifier: " + result.nullifier);
+        console.log('\x1b[34m%s\x1b[0m', "- user_identifier: " + result.user_identifier);
     });
 });

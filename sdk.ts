@@ -88,9 +88,11 @@ export class ProofOfPassportWeb2Verifier {
         }
         console.log('\x1b[32m%s\x1b[0m', `- proof verified`);
 
-        //7. Nullifier Management
-        //...
-
+        const result = {
+            nullifier: parsedPublicSignals.nullifier,
+            user_identifier: parsedPublicSignals.user_identifier,
+        };
+        return result;
     }
 }
 
