@@ -3,10 +3,7 @@ import fs from 'fs';
 import { attributeToPosition, countryCodes, DEFAULT_RPC_URL, REGISTER_ABI, REGISTER_CONTRACT_ADDRESS } from './utils/constants';
 import { ethers } from 'ethers';
 import { getCurrentDateYYMMDD } from './utils/utils';
-import { expect } from 'chai';
 
-const path_disclose_wasm = "./artifacts/disclose_js/disclose.wasm";
-const path_disclose_zkey = "./artifacts/disclose_final.zkey";
 const path_disclose_vkey = "./artifacts/disclose_vkey.json";
 const MOCK_MERKLE_ROOT_CHECK = true;
 
