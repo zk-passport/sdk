@@ -25,7 +25,7 @@ export const attributeToPosition = {
 };
 
 export const DEFAULT_RPC_URL = "https://mainnet.optimism.io";
-export const REGISTER_CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const REGISTER_CONTRACT_ADDRESS = "0xFd84F23Be557133DCa47Fc9aa22031AcCE557335";
 
 export const REGISTER_ABI = [
   {

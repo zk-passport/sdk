@@ -11,6 +11,7 @@ import fs from 'fs';
 const path_disclose_wasm = "./artifacts/disclose.wasm";
 const path_disclose_zkey = "./artifacts/disclose_final.zkey";
 const path_disclose_vkey = "./artifacts/disclose_vkey.json";
+import { ProofOfPassportWeb2Verifier } from '../sdk';
 
 describe('Circuit Proving Tests', () => {
     it('should generate a valid proof for the disclose circuit', async () => {
@@ -56,9 +57,7 @@ describe('Circuit Proving Tests', () => {
             path_disclose_zkey
         );
 
-        expect(proof).to.be.an('object');
-        expect(publicSignals).to.be.an('array');
-        const isProofValid = await groth16.verify(vKey, publicSignals, proof);
-        expect(isProofValid).to.be.true;
+        const proofOfPassportWeb2Verifier = new ProofOfPassportWeb2Verifier(scope, attestation_id, [["older_than", "18"], ["nationality", "France"]]);
+        await proofOfPassportWeb2Verifier.verifyInputs(publicSignals, proof);
     });
 });
